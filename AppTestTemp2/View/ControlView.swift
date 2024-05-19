@@ -59,7 +59,13 @@ struct ControlButtonBar : View {
             
             Spacer()
             //Browse Button
-            ControlButton(systemIconName: "square.grid.2x2.fill", action: {print("Browse Button is Pressed")})
+            ControlButton(systemIconName: "square.grid.2x2.fill", action: {
+                print("Browse Button is Pressed")
+                self.showBrowse.toggle()
+            }).sheet(isPresented: $showBrowse , content: {
+                BrowseView(showBrowse: $showBrowse)
+            })
+            
             
             Spacer()
             //Setting Button

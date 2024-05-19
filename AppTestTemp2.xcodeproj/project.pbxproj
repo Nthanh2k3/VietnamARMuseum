@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA318EAD2BFA235A004E3D1D /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA318EAC2BFA235A004E3D1D /* BrowseView.swift */; };
+		FA318EAF2BFA2B81004E3D1D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA318EAE2BFA2B81004E3D1D /* Model.swift */; };
 		FA7594372BF9C6070068CF72 /* NhaRong_GiaLai.usdz in Resources */ = {isa = PBXBuildFile; fileRef = FA75942B2BF9C6070068CF72 /* NhaRong_GiaLai.usdz */; };
 		FA7594382BF9C6070068CF72 /* MaisonTay_TayHouse.usdz in Resources */ = {isa = PBXBuildFile; fileRef = FA75942C2BF9C6070068CF72 /* MaisonTay_TayHouse.usdz */; };
 		FA7594392BF9C6070068CF72 /* Mask-Dao_LaoCai.usdz in Resources */ = {isa = PBXBuildFile; fileRef = FA75942D2BF9C6070068CF72 /* Mask-Dao_LaoCai.usdz */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA318EAC2BFA235A004E3D1D /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
+		FA318EAE2BFA2B81004E3D1D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		FA75942B2BF9C6070068CF72 /* NhaRong_GiaLai.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = NhaRong_GiaLai.usdz; sourceTree = "<group>"; };
 		FA75942C2BF9C6070068CF72 /* MaisonTay_TayHouse.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = MaisonTay_TayHouse.usdz; sourceTree = "<group>"; };
 		FA75942D2BF9C6070068CF72 /* Mask-Dao_LaoCai.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Mask-Dao_LaoCai.usdz"; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 			children = (
 				FA8C6BA42BF9C40D0035F6DA /* ContentView.swift */,
 				FA7594432BF9C6540068CF72 /* ControlView.swift */,
+				FA318EAC2BFA235A004E3D1D /* BrowseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -90,6 +95,7 @@
 				FA7594452BF9C93B0068CF72 /* Info.plist */,
 				FA8C6BB02BF9C42E0035F6DA /* 3D Models Assets */,
 				FA8C6BA22BF9C40D0035F6DA /* AppTestTemp2App.swift */,
+				FA318EAE2BFA2B81004E3D1D /* Model.swift */,
 				FA63D7652BF9C9F6002F2FF4 /* View */,
 				FA8C6BA62BF9C40F0035F6DA /* Assets.xcassets */,
 				FA8C6BA82BF9C40F0035F6DA /* Preview Content */,
@@ -206,6 +212,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA318EAF2BFA2B81004E3D1D /* Model.swift in Sources */,
+				FA318EAD2BFA235A004E3D1D /* BrowseView.swift in Sources */,
 				FA8C6BA52BF9C40D0035F6DA /* ContentView.swift in Sources */,
 				FA7594442BF9C6540068CF72 /* ControlView.swift in Sources */,
 				FA8C6BA32BF9C40D0035F6DA /* AppTestTemp2App.swift in Sources */,
