@@ -9,12 +9,24 @@ import RealityKit
 
 
 struct ContentView: View {
+    @EnvironmentObject var placementSettings : PlacementSettings
     @State private var isControlBarIsVisible: Bool = true
     @State private var showBrowse : Bool = false
     var body: some View {
         ZStack(alignment: .bottom) {
             ARViewContainer()
-            ControlView(isControlsVisible: $isControlBarIsVisible, showBrowse: $showBrowse)
+            
+            if (self.placementSettings.selectedModel == nil) {
+            
+                
+                ControlView(isControlsVisible: $isControlBarIsVisible, showBrowse: $showBrowse)
+                
+            } else {
+                PlacementView()
+            }
+            
+            
+            
         }.edgesIgnoringSafeArea(.all)
     }
 }
@@ -36,6 +48,7 @@ struct ARViewContainer: UIViewRepresentable {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(PlacementSettings())
     }
 }
 

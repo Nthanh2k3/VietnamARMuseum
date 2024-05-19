@@ -38,6 +38,8 @@ class Model {
     var modelEntity : ModelEntity?
     var scaleCompensation : Float
     
+    private var cancellable : AnyCancellable?
+    
     init(name: String, category: ModelCategory, scaleCompensation: Float = 1 ) {
         self.name = name
         self.category = category
@@ -46,6 +48,26 @@ class Model {
     }
     
     //Create A mothod to async load modelEntity
+    func asyncLoadModelEntity() {
+        let filename = self.name + ".usdz"
+        self.cancellable = Entity.loadModelAsync(named: filename)
+            .sink(receiveCompletion: { loadCompletion in
+                switch loadCompletion {
+                case .failure(let error):
+                    print("DEBUG: Unable to load modelEntity for \(self.name)")
+                    
+                case .finished :
+                    break
+                }
+            }, receiveValue: { modelEntity in
+                
+                self.modelEntity = modelEntity
+                
+                self.modelEntity?.scale *= self.scaleCompensation
+                
+                print("DEBUG: Successfully loaded modelEntity for \(self.name)")
+            })
+    }
 }
 
 struct Models {
@@ -77,4 +99,6 @@ struct Models {
     func get(category:ModelCategory) -> [Model] {
         return all.filter({$0.category == category})
     }
+    
+
 }

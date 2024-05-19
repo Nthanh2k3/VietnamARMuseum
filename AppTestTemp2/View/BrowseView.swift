@@ -10,10 +10,11 @@ import SwiftUI
 struct BrowseView : View {
     @Binding var showBrowse : Bool
     
+    
     var body: some View {
         NavigationView {
             ScrollView() {
-                ModelsByCategoryGrid()
+                ModelsByCategoryGrid(showBrowse: $showBrowse)
             }.navigationTitle(Text("Browse"))
                 .navigationBarItems(trailing: Button(action: {
                     print("Browse View is Dismissed")
@@ -26,7 +27,8 @@ struct BrowseView : View {
 }
 
 struct HorizontalGrid : View {
-    
+    @EnvironmentObject var placementSettings: PlacementSettings
+    @Binding var showBrowse : Bool
     var title: String
     var items: [Model]
     
@@ -47,9 +49,10 @@ struct HorizontalGrid : View {
                         let model = items[index]
                         
                         ItemButton(model: model, action: {
-                            //TODO : call model method to async load model Entity
-                            //TODO : select model for placement
+                            model.asyncLoadModelEntity()
+                            self.placementSettings.selectedModel = model
                             print("BrowseView: selected\(model.name)")
+                            self.showBrowse = false
                         })
                         
                     }
@@ -63,11 +66,12 @@ struct HorizontalGrid : View {
 
 
 struct ModelsByCategoryGrid : View {
+    @Binding var showBrowse : Bool
     var body: some View {
         VStack {
             ForEach(ModelCategory.allCases, id: \.self) {
                 category in
-                HorizontalGrid(title: category.label, items: Models().all)
+                HorizontalGrid(showBrowse: $showBrowse, title: category.label, items: Models().all)
             }
         }
     }
@@ -86,7 +90,7 @@ struct ItemButton : View {
     let action: () -> Void
     var body: some View {
         Button(action: {
-            self.action
+            self.action()
         }) {
             Image(uiImage: self.model.thumbnail)
                 .resizable()
